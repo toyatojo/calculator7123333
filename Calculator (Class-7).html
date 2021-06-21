@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <style>
+        .btn {
+            width: 100%;
+            font-size: xx-large;
+            padding: 25px 50px 25px 50px;
+        }
+
+        .inut1 {
+            width: 300px;
+            margin-left: 40%;
+            margin-right: 30%;
+        }
+
+        .inut2 {
+            width: 300px;
+            margin-left: 40%;
+            margin-right: 30%;
+        }
+
+        .ta {
+            margin-left: 33.33333%;
+        }
+
+        @media screen and (max-width:500px) {
+            .ta {
+                margin: 0%;
+            }
+
+            .inut1,
+            .inut2 {
+                margin: 0%;
+                width: 100%;
+                height: 55px;
+            }
+
+            .btn {
+                padding: 15px 47.5px 15px 47.5px;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="inut1" id="inut1" style="height: 70px;font-size: 30px;"><br>
+    <input type="text" class="inut2" id="inut2" style="height: 70px;font-size: 30px;">
+    <table class="ta">
+        <tr>
+            <!-- Row 1 be careful-->
+            <td>
+                <button class="btn btn-outline-warning hello" onclick="">÷</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-warning" onclick="takeInput('*'), clearSecInput('')">×</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-warning" onclick="takeInput('+'), clearSecInput('')">+</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-warning" onclick="takeInput('-'), clearSecInput('')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <!--Row 2 Be careful-->
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput('('), clearSecInput('')">(</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput(')'), clearSecInput('')">)
+            </td></button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput('.'), takeInput2('.')">.</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput('Math.sqrt('), takeInput2('')">√</button>
+            </td>
+        </tr>
+        <tr>
+            <!--Row 2 Be careful-->
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(7), takeInput2(7)">7</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(8), takeInput2(8)">8</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(9), takeInput2(9)">9</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput('%'), clearSecInput('')">%</button>
+            </td>
+        </tr>
+        <tr>
+            <!--Row 2 Be careful-->
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(4), takeInput2(4)">4</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(5), takeInput2(5)">5</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(6), takeInput2(6)">6</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput('Math.pow('), takeInput2('')">x<sup>n</sup></button>
+            </td>
+        </tr>
+        <tr>
+            <!--Row 2 Be careful-->
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(1), takeInput2(1)">1</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(2), takeInput2(2)">2</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(3), takeInput2(3)">3</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-success" onclick="takeInput(','), clearSecInput('')">,</button>
+            </td>
+        </tr>
+        <tr>
+            <!--Row 2 Be careful-->
+            <td>
+                <button class="btn btn-outline-danger" onclick="clearInput()">C</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput(0), takeInput2(0)">0</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-danger" onclick="calcAnswer()">=</button>
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" onclick="takeInput('00'), takeInput2('00')">00</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function takeInput(num) {
+            document.getElementById("inut1").value = document.getElementById("inut1").value + num;
+            // document.getElementById("form-1").value + = num;
+        }
+        function takeInput2(num) {
+            document.getElementById("inut2").value += num;
+        }
+        function clearInput() {
+            document.getElementById("inut1").value = ""
+            document.getElementById("inut2").value = ""
+        }
+        function clearSecInput() {
+            document.getElementById("inut2").value = ""
+        }
+        function calcAnswer() {
+            var exp = document.getElementById("inut1").value
+            var total = eval(exp)
+            document.getElementById("inut2").value = total
+        }
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
